@@ -11,8 +11,8 @@
 
 <body>
 
-    <video class="video-fondo" src="com2.mp4" preload="auto" autoplay loop muted playsinline webkit-playsinline
-        disablePictureInPicture>
+    <video class="video-fondo" src="com2.mp4" poster="fallback.jpg" preload="auto" autoplay loop muted playsinline
+        webkit-playsinline disablePictureInPicture>
     </video>
 
     <div class="overlay"></div>
@@ -20,8 +20,6 @@
     <div class="contenido">
         <div class="tarjeta">
             <h2>Aitor Teodorovich</h2>
-
-
             <a href="https://www.instagram.com/ait0r_.08" target="_blank" class="boton"><i
                     class="fa-brands fa-instagram"></i> Instagram</a>
             <a href="https://twitter.com/" target="_blank" class="boton"><i class="fa-brands fa-x-twitter"></i> Twitter
@@ -33,18 +31,7 @@
         </div>
     </div>
 
-    <script>
-        // Forzar la reproducción del video en iOS
-        document.addEventListener("DOMContentLoaded", function () {
-            var video = document.querySelector('.video-fondo');
-            if (video) {
-                video.muted = true;
-                video.play().catch(function (error) {
-                    console.log("Reproducción automática bloqueada por el navegador:", error);
-                });
-            }
-        });
-    </script>
+    <script src="javas.js"></script>
 </body>
 
 </html>

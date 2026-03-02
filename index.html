@@ -11,7 +11,7 @@
 
 <body>
 
-    <video class="video-fondo" autoplay loop muted playsinline>
+    <video class="video-fondo" autoplay loop muted playsinline webkit-playsinline disablePictureInPicture>
         <source src="com2.mp4" type="video/mp4">
     </video>
 
@@ -19,18 +19,32 @@
 
     <div class="contenido">
         <div class="tarjeta">
-            <h2>Mi Nombre</h2>
-            <p>Creador de Contenido</p>
+            <h2>Aitor Teodorovich</h2>
+
 
             <a href="https://www.instagram.com/ait0r_.08" target="_blank" class="boton"><i
                     class="fa-brands fa-instagram"></i> Instagram</a>
             <a href="https://twitter.com/" target="_blank" class="boton"><i class="fa-brands fa-x-twitter"></i> Twitter
                 / X</a>
+            <a href="sorpresa.html" class="boton" style="background: linear-gradient(45deg, #00aff0, #008cc9);"><i
+                    class="fa-brands fa-medium"></i> OnlyFans</a>
             <a href="mailto:teodorovichaitor2008@gmail.com" class="boton"><i class="fa-solid fa-envelope"></i> Enviar
                 Email</a>
         </div>
     </div>
 
+    <script>
+        // Forzar la reproducción del video en iOS
+        document.addEventListener("DOMContentLoaded", function () {
+            var video = document.querySelector('.video-fondo');
+            if (video) {
+                video.muted = true;
+                video.play().catch(function (error) {
+                    console.log("Reproducción automática bloqueada por el navegador:", error);
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OnlyFans</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fondo-broma">
+
+    <!-- El video de la broma -->
+    <video id="video-sorpresa" class="video-fondo video-oculto" playsinline preload="auto" src="troll360p.mp4"
+        type="video/mp4">
+        Tu navegador no soporta el formato de video.
+    </video>
+
+    <div class="overlay overlay-broma"></div>
+
+    <div class="contenido" id="mensaje-inicial">
+        <div class="tarjeta tarjeta-broma">
+            <h2>¿Qué quieres ver, guarrill@? 😈</h2>
+            <p>Haz clic abajo para revelar el contenido exclusivo...</p>
+            <button id="boton-revelar" class="boton boton-broma">
+                ¡Mostrar contenido!
+            </button>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const boton = document.getElementById('boton-revelar');
+            const mensaje = document.getElementById('mensaje-inicial');
+            const overlay = document.querySelector('.overlay');
+            const video = document.getElementById('video-sorpresa');
+
+            boton.addEventListener('click', function () {
+                // Ocultar el mensaje y el fondo oscuro
+                mensaje.style.display = 'none';
+                overlay.style.display = 'none';
+
+                // Mostrar el video
+                video.style.display = 'block';
+                video.currentTime = 0;
+
+                // Intentar poner el video a pantalla completa
+                if (video.requestFullscreen) {
+                    video.requestFullscreen();
+                } else if (video.webkitRequestFullscreen) { /* Safari */
+                    video.webkitRequestFullscreen();
+                } else if (video.msRequestFullscreen) { /* IE11 */
+                    video.msRequestFullscreen();
+                }
+
+                // Poner el volumen de la pestaña al máximo (1.0 es el 100%)
+                video.volume = 1.0;
+
+                // Reproducir el video a pantalla completa
+                video.play().catch(error => {
+                    console.log("Error al reproducir el video:", error);
+                    alert("¡Haz clic en el video para reproducirlo!");
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

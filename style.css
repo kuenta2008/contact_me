@@ -1,0 +1,128 @@
+/* Reseteo y fuente base */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: white;
+    overflow: hidden;
+}
+
+/* Configuración general del fondo de video corregida */
+.video-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    /* 100% del ancho de la pantalla */
+    height: 100vh;
+    /* 100% del alto de la pantalla */
+    z-index: -1;
+    object-fit: cover;
+    /* Cubre la pantalla sin deformar el video */
+    object-position: center;
+    /* Mantiene el centro del video enfocado */
+}
+
+
+/* Capa de oscurecimiento general sobre el video */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 0;
+}
+
+/* Contenedor principal flexible */
+.contenido {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Tarjeta de contenido - Ajustada para máxima transparencia y nitidez */
+.tarjeta {
+    background: rgba(20, 20, 20, 0.1);
+    padding: 40px;
+    border-radius: 20px;
+    backdrop-filter: blur(2px);
+    -webkit-backdrop-filter: blur(2px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    text-align: center;
+    width: 100%;
+    max-width: 380px;
+    transition: transform 0.3s ease;
+}
+
+.tarjeta:hover {
+    transform: translateY(-5px);
+}
+
+/* Textos con sombra para no perder lectura sobre el video claro */
+h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2rem;
+    letter-spacing: 1px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.9);
+}
+
+p {
+    margin-bottom: 30px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.1rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
+}
+
+/* Estilo de botones */
+.boton {
+    display: block;
+    background: linear-gradient(45deg, #ff00cc, #ad00ff);
+    color: white;
+    text-decoration: none;
+    padding: 16px;
+    margin: 15px 0;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(225, 0, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+.boton::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: 0.5s;
+}
+
+.boton:hover::before {
+    left: 100%;
+}
+
+.boton:hover {
+    transform: scale(1.03);
+    box-shadow: 0 6px 20px rgba(225, 0, 255, 0.5);
+    filter: brightness(1.1);
+}
+
+.boton:active {
+    transform: scale(0.98);
+}
